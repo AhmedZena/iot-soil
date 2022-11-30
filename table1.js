@@ -87,7 +87,7 @@ function getData1() {
       hum1 = [];
       soil1 = [];
       time1 = [];
-      for (var i = 0; i < outputData1.length; i++) {
+      for (var i = outputData1.length - 1; i >= 0; i--) {
         temp1.push(outputData1[i][1]);
         hum1.push(outputData1[i][2]);
         soil1.push(outputData1[i][3]);
@@ -116,10 +116,10 @@ function getData1() {
 function putData1() {
   for (var i = 0; i < temp1.length; i++) {
     //   for (var i = temp1.length - 1; i >= 0; i--) {
-    tempTable1[i].innerHTML = temp1[temp1.length - 1 - i];
-    humTable1[i].innerHTML = hum1[hum1.length - 1 - i];
-    soilTable1[i].innerHTML = soil1[soil1.length - 1 - i];
-    timeTable1[i].innerHTML = time1[time1.length - 1 - i];
+    tempTable1[i].innerHTML = temp1[i];
+    humTable1[i].innerHTML = hum1[i];
+    soilTable1[i].innerHTML = soil1[i];
+    timeTable1[i].innerHTML = time1[i];
   }
 }
 
@@ -160,8 +160,7 @@ async function allCharts1() {
       //   labels: time,
       datasets: [
         {
-          // reverse temp1 array and then put data in chart
-          data: temp1.reverse(),
+          data: temp1,
 
           //   data: temp1,
           //   put time of each data in label
@@ -202,7 +201,7 @@ async function allCharts1() {
       labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       datasets: [
         {
-          data: hum1.reverse(),
+          data: hum1,
           borderColor: "#153cb2",
           fill: false,
         },
@@ -236,7 +235,8 @@ async function allCharts1() {
       labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       datasets: [
         {
-          data: soil1.reverse(),
+          // reversedSoil1 = soil1.reverse(),
+          data: soil1,
           borderColor: "#a56403",
           fill: false,
         },
