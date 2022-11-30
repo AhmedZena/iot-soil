@@ -39,27 +39,23 @@ function checkTest3() {
       return data;
     })
     .then((obj) => {
-      obj.length = 36;
+      //   obj.length = 24;
 
       return obj;
     })
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData3 = data.map(Object.values);
-
-      // reset all temp3 and hum3 and soil3 and time3 arrays
-
-      temp3 = [];
-      hum3 = [];
-      soil3 = [];
-      time3 = [];
-
-      if (data[0] == undefined) {
-        console.log("Trial 3 not started");
+      console.log(outputData3.length);
+      //   console.log(outputData);
+      //   console.log(outputData[0][0]);
+      //   test = outputData[0][0];
+      if (data.length < 24) {
+        console.log("Trial 3 is not started yet");
       } else {
-        console.log(test2);
-        if (test2 != outputData3[0][0]) {
-          test2 = outputData3[0][0];
+        console.log(test3);
+        if (test3 != outputData3[0][0]) {
+          test3 = outputData3[0][0];
           getData3();
           putData3();
         }
@@ -70,7 +66,7 @@ checkTest3();
 
 function getData3() {
   fetch(
-    "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"
+    "https://script.googleusercontent.com/macros/echo?user_content_key=1fPNeSXOIG-Ispc4wkJR6_U_coLQ5AI4V8Wi5q30i62EWhJiHf083EH6vKhi3AG1laPlqmoZFH1sBcxW3We9NFdkQB0SII0Km5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnIEBIOyuHizaqrYFl95kTmwt-C6iVoC8Dx1dsH_vPqjT1ipmXj_wkOKviivXkoZNewMkOJYVopsXrJZtvLEaYiw8T0al5xC6AA&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"
   )
     .then((result) => {
       var data = result.json();
@@ -79,59 +75,61 @@ function getData3() {
       //   console.log(data);
     })
     .then((obj) => {
-      obj.length = 36;
+      //   obj.length = 24;
 
       return obj;
     })
     .then((data) => {
-      //convert array of objects data to array of arrays
+      console.log(data);
+
+      //   convert array of objects data to array of arrays
       var outputData3 = data.map(Object.values);
 
-      console.log(outputData3);
+      if (outputData3.length < 24) {
+        console.log("Trial 3 is not started yet");
+      } else {
+        outputData3 = outputData3.slice(24);
+        console.log(outputData3);
+        outputData3.reverse();
+        console.log(outputData3);
 
-      for (var i = 24; i < outputData3.length; i++) {
-        temp3.push(outputData3[i][1]);
-        hum2.push(outputData3[i][2]);
-        soil2.push(outputData3[i][3]);
-        time2.push(outputData3[i][4]);
-      }
+        //   reset temp3  and hum3 and soil3 and time
+        temp3 = [];
+        hum3 = [];
+        soil3 = [];
+        time3 = [];
 
-      //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
-      for (var i = 0; i < time2.length; i++) {
-        var date = new Date(time2[i]);
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        var day = date.getDate();
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
-        var ampm = hours >= 12 ? "pm" : "am";
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        time2[i] =
-          hours +
-          ":" +
-          minutes +
-          ":" +
-          seconds +
-          " " +
-          ampm +
-          " " +
-          day +
-          "/" +
-          month +
-          "/" +
-          year;
+        // for (var i = 0; i < outputData3.length; i++) {
+        for (i = outputData3.length - 1; i >= 0; i--) {
+          temp3.push(outputData3[i][1]);
+          // console.log(temp3);
+          hum3.push(outputData3[i][2]);
+          soil3.push(outputData3[i][3]);
+          time3.push(outputData3[i][4]);
+        }
+        console.log(temp3);
+        //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
+        for (var i = 0; i < time3.length; i++) {
+          var date = new Date(time3[i]);
+          var hours = date.getHours();
+          var minutes = date.getMinutes();
+          var seconds = date.getSeconds();
+          var ampm = hours >= 12 ? "pm" : "am";
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          time3[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
+        }
+        console.log(time3);
       }
-      console.log(time2);
     });
 }
 // getData();
 // function to put data in table
 function putData3() {
-  console.log(temp3.length);
+  //   console.log(temp3.length);
+  console.log(soil3);
   if (temp3.length == 0) {
     for (var i = 0; i < 12; i++) {
       tempTable3[i].innerHTML = "0";
@@ -142,27 +140,28 @@ function putData3() {
   } else {
     for (var i = 0; i < temp3.length; i++) {
       //   for (var i = temp3.length - 1; i >= 0; i--) {
-      tempTable3[i].innerHTML = temp3[temp3.length - 1 - i];
-      humTable3[i].innerHTML = hum3[hum3.length - 1 - i];
-      soilTable3[i].innerHTML = soil3[soil3.length - 1 - i];
-      timeTable3[i].innerHTML = time3[time3.length - 1 - i];
+      tempTable3[i].innerHTML = temp3[i];
+      humTable3[i].innerHTML = hum3[i];
+      soilTable3[i].innerHTML = soil3[i];
+      timeTable3[i].innerHTML = time3[i];
     }
   }
 }
 
 // function to calculate average
 function calculateAvg3() {
+  var sumtemp3 = 0;
+  var sumhum3 = 0;
+  var sumsoil3 = 0;
   for (var i = 0; i < temp3.length; i++) {
-    avgTemp3 += temp3[i];
-    avgHum3 += hum3[i];
-    avgSoil3 += soil3[i];
-    // average time is not calculated
+    sumtemp3 += parseInt(temp3[i]);
+    sumhum3 += parseInt(hum3[i]);
+    sumsoil3 += parseInt(soil3[i]);
   }
-  avgTemp3 = avgTemp3 / temp3.length;
-  avgHum3 = avgHum3 / hum3.length;
-  avgSoil3 = avgSoil3 / soil3.length;
-  //   avgTime = avgTime / time.length;
-  //   console.log(avgTemp3, avgHum3, avgSoil3, avgTime);
+
+  avgTemp3 = sumtemp3 / temp3.length;
+  avgHum3 = sumhum3 / hum3.length;
+  avgSoil3 = sumsoil3 / soil3.length;
 }
 
 // make temp3 show after 1 min
@@ -175,7 +174,7 @@ setInterval(() => {
   averageChart3();
 
   //   console.log(temp3);
-}, 60000);
+}, 5000);
 
 // make function for all charts
 
@@ -327,5 +326,3 @@ function averageChart3() {
     },
   });
 }
-
-// get data from link "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"

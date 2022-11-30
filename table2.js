@@ -46,14 +46,14 @@ function checkTest2() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData2 = data.map(Object.values);
-      console.log(outputData2.length);
+      //   console.log(outputData2.length);
       //   console.log(outputData);
       //   console.log(outputData[0][0]);
       //   test = outputData[0][0];
       if (data[0] == undefined) {
         console.log("Trial 2 is not started yet");
       } else {
-        console.log(test2);
+        // console.log(test2);
         if (test2 != outputData2[0][0]) {
           test2 = outputData2[0][0];
           getData2();
@@ -80,26 +80,16 @@ function getData2() {
       return obj;
     })
     .then((data) => {
-      //convert array of objects data to array of arrays
-
-      //   if (data.length > 12 ) {
-
-      //   var outputData2 = data.map(Object.values);
-      //   console.log(outputData2);
-      //   outputData2 = outputData2.splice(12);
-      //   console.log(outputData2);
-      //   console.log(outputData2);
-      //   outputData2.reverse();
       if (data.length > 12 && data.length < 24) {
         var outputData2 = data.map(Object.values);
         outputData2 = outputData2.slice(12);
         outputData2.reverse();
-        console.log(outputData2);
+        // console.log(outputData2);
       } else if (data.length > 24) {
         var outputData2 = data.map(Object.values);
         outputData2 = outputData2.slice(12, 24);
         outputData2.reverse();
-        console.log(outputData2);
+        // console.log(outputData2);
       } else {
         console.log("Trial 2 is not started yet");
       }
@@ -119,7 +109,7 @@ function getData2() {
         soil2.push(outputData2[i][3]);
         time2.push(outputData2[i][4]);
       }
-      console.log(temp2);
+      //   console.log(temp2);
       //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
       for (var i = 0; i < time2.length; i++) {
         var date = new Date(time2[i]);
@@ -133,13 +123,13 @@ function getData2() {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         time2[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
       }
-      console.log(time2);
+      //   console.log(time2);
     });
 }
 // getData();
 // function to put data in table
 function putData2() {
-  console.log(temp2.length);
+  //   console.log(temp2.length);
   if (temp2.length == 0) {
     for (var i = 0; i < 12; i++) {
       tempTable2[i].innerHTML = "0";
@@ -229,34 +219,6 @@ async function allCharts2() {
     },
   });
 
-  //   var chartT = new Highcharts.Chart({
-  //     chart: { renderTo: "chart-temperature" },
-  //     title: { text: "BME280 Temperature" },
-  //     series: [
-  //       {
-  //         showInLegend: false,
-  //         data: [],
-  //       },
-  //     ],
-  //     plotOptions: {
-  //       line: { animation: false, dataLabels: { enabled: true } },
-  //       series: { color: "#059e8a" },
-  //     },
-  //     xAxis: { type: "datetime", dateTimeLabelFormats: { second: "%H:%M:%S" } },
-  //     yAxis: {
-  //       title: { text: "Temperature (Celsius)" },
-  //       //title: { text: 'Temperature (Fahrenheit)' }
-  //     },
-  //     credits: { enabled: false },
-  //   });
-
-  //   function drawChart(obj) {
-  //     if (chartT.series[0].data.length > 24) {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, true, true);
-  //     } else {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, false, true);
-  //     }
-  //   }
   var chart2 = new Chart("humChart2", {
     type: "line",
     data: {
@@ -364,5 +326,3 @@ function averageChart2() {
     },
   });
 }
-
-// get data from link "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"

@@ -52,8 +52,8 @@ function checkTest1() {
         var outputData1 = data.map(Object.values);
         outputData1.reverse();
         outputData1.length = 12;
-        console.log(test1);
-        console.log(outputData1[0][0]);
+        // console.log(test1);
+        // console.log(outputData1[0][0]);
         if (test1 != outputData1[0][0]) {
           test1 = outputData1[0][0];
           getData1();
@@ -84,7 +84,7 @@ function getData1() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData1 = data.map(Object.values);
-      console.log(outputData1);
+      //   console.log(outputData1);
       // reset all temp1 and hum1 and soil1 and time1
       //   temp1 = [];
       //   hum1 = [];
@@ -95,7 +95,7 @@ function getData1() {
         hum1.push(outputData1[i][2]);
         soil1.push(outputData1[i][3]);
         time1.push(outputData1[i][4]);
-        console.log(time1);
+        // console.log(time1);
       }
       //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
       for (var i = 0; i < time1.length; i++) {
@@ -111,7 +111,7 @@ function getData1() {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         time1[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
       }
-      console.log(time1);
+      //   console.log(time1);
     });
 }
 // getData();
@@ -307,5 +307,3 @@ function averageChart1() {
     },
   });
 }
-
-// get data from link "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"
