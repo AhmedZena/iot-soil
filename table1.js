@@ -88,7 +88,6 @@ function getData1() {
       soil1 = [];
       time1 = [];
       for (var i = 0; i < outputData1.length; i++) {
-
         temp1.push(outputData1[i][1]);
         hum1.push(outputData1[i][2]);
         soil1.push(outputData1[i][3]);
@@ -161,7 +160,10 @@ async function allCharts1() {
       //   labels: time,
       datasets: [
         {
-          data: temp1,
+          // reverse temp1 array and then put data in chart
+          data: temp1.reverse(),
+
+          //   data: temp1,
           //   put time of each data in label
           label: "Temp",
 
@@ -194,41 +196,13 @@ async function allCharts1() {
     },
   });
 
-  //   var chartT = new Highcharts.Chart({
-  //     chart: { renderTo: "chart-temperature" },
-  //     title: { text: "BME280 Temperature" },
-  //     series: [
-  //       {
-  //         showInLegend: false,
-  //         data: [],
-  //       },
-  //     ],
-  //     plotOptions: {
-  //       line: { animation: false, dataLabels: { enabled: true } },
-  //       series: { color: "#059e8a" },
-  //     },
-  //     xAxis: { type: "datetime", dateTimeLabelFormats: { second: "%H:%M:%S" } },
-  //     yAxis: {
-  //       title: { text: "Temperature (Celsius)" },
-  //       //title: { text: 'Temperature (Fahrenheit)' }
-  //     },
-  //     credits: { enabled: false },
-  //   });
-
-  //   function drawChart(obj) {
-  //     if (chartT.series[0].data.length > 24) {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, true, true);
-  //     } else {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, false, true);
-  //     }
-  //   }
   var chart2 = new Chart("humChart1", {
     type: "line",
     data: {
       labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       datasets: [
         {
-          data: hum1,
+          data: hum1.reverse(),
           borderColor: "#153cb2",
           fill: false,
         },
@@ -262,7 +236,7 @@ async function allCharts1() {
       labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       datasets: [
         {
-          data: soil1,
+          data: soil1.reverse(),
           borderColor: "#a56403",
           fill: false,
         },
