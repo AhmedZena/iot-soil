@@ -39,13 +39,14 @@ function checkTest2() {
       return data;
     })
     .then((obj) => {
-      obj.length = 24;
+      //   obj.length = 24;
 
       return obj;
     })
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData2 = data.map(Object.values);
+      console.log(outputData2.length);
       //   console.log(outputData);
       //   console.log(outputData[0][0]);
       //   test = outputData[0][0];
@@ -81,7 +82,11 @@ function getData2() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData2 = data.map(Object.values);
-
+      console.log(outputData2);
+      outputData2 = outputData2.splice(12);
+      console.log(outputData2);
+      console.log(outputData2);
+      outputData2.reverse();
       //   reset temp2  and hum2 and soil2 and time2
 
       temp2 = [];
@@ -89,7 +94,8 @@ function getData2() {
       soil2 = [];
       time2 = [];
 
-      for (var i = 12; i < outputData2.length; i++) {
+      //   for (var i = 0; i < outputData2.length; i++) {
+      for (i = outputData2.length - 1; i >= 0; i--) {
         temp2.push(outputData2[i][1]);
         // console.log(temp2);
         hum2.push(outputData2[i][2]);
@@ -163,18 +169,7 @@ setInterval(() => {
   averageChart2();
 
   //   console.log(temp2);
-}, 60000);
-
-setTimeout(() => {
-  //   getData();
-  checkTest2();
-  putData2();
-  calculateAvg2();
-  allCharts2();
-  averageChart2();
-
-  //   console.log(temp2);
-}, 50);
+}, 5000);
 
 // make function for all charts
 

@@ -39,7 +39,7 @@ function checkTest1() {
       return data;
     })
     .then((obj) => {
-      obj.length = 12;
+      //   obj.length = 12;
 
       return obj;
     })
@@ -50,6 +50,8 @@ function checkTest1() {
       } else {
         //convert array of objects data to array of arrays
         var outputData1 = data.map(Object.values);
+        outputData1.reverse();
+        outputData1.length = 12;
         console.log(test1);
         console.log(outputData1[0][0]);
         if (test1 != outputData1[0][0]) {
@@ -149,7 +151,7 @@ setInterval(() => {
   averageChart1();
 
   //   console.log(temp1);
-}, 2000);
+}, 5000);
 
 // make function for all charts
 
