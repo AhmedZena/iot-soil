@@ -81,10 +81,14 @@ function getData1() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData1 = data.map(Object.values);
-
       console.log(outputData1);
-
+      temp1 = [];
+      hum1 = [];
+      soil1 = [];
+      time1 = [];
       for (var i = 0; i < outputData1.length; i++) {
+        // reset all temp1 and hum1 and soil1 and time1
+
         temp1.push(outputData1[i][1]);
         hum1.push(outputData1[i][2]);
         soil1.push(outputData1[i][3]);
@@ -97,9 +101,7 @@ function getData1() {
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds();
-        var day = date.getDate();
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
+
         var ampm = hours >= 12 ? "pm" : "am";
         hours = hours % 12;
         hours = hours ? hours : 12;
