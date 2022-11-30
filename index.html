@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IOTFireBase</title>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    </head>
+
+    <body>
+
+        <div class="projectName" style="text-align:center">
+            <h1>IOT based soil moisture monitoring system
+            </h1>
+        </div>
+        <p>
+        <div id='tem'></div>
+        <div id='hum'></div>
+        <div id='soil'></div>
+        <div id="message">
+            <h1>ESP NOT CONNECTED !</h1>
+        </div>
+        <table class="container">
+            <h2>Trial 1</h2>
+            <tr>
+                <td>
+                    <table class="insideContainer1">
+                        <!-- <caption></caption> -->
+
+                        <tr class="mainHeader">
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Soil Moisture Percentage</th>
+                            <th>Time [Hours:minutes:seconde]</th>
+                        </tr>
+                        <tr>
+                            <td id='t0'>0</td>
+                            <td id='h0'>0</td>
+                            <td id='s0'>0</td>
+                            <td id='m0'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t1'>0</td>
+                            <td id='h1'>0</td>
+                            <td id='s1'>0</td>
+                            <td id='m1'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t2'>0</td>
+                            <td id='h2'>0</td>
+                            <td id='s2'>0</td>
+                            <td id='m2'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t3'>0</td>
+                            <td id='h3'>0</td>
+                            <td id='s3'>0</td>
+                            <td id='m3'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t4'>0</td>
+                            <td id='h4'>0</td>
+                            <td id='s4'>0</td>
+                            <td id='m4'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t5'>0</td>
+                            <td id='h5'>0</td>
+                            <td id='s5'>0</td>
+                            <td id='m5'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t6'>0</td>
+                            <td id='h6'>0</td>
+                            <td id='s6'>0</td>
+                            <td id='m6'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t7'>0</td>
+                            <td id='h7'>0</td>
+                            <td id='s7'>0</td>
+                            <td id='m7'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t8'>0</td>
+                            <td id='h8'>0 </td>
+                            <td id='s8'>0</td>
+                            <td id='m8'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t9'>0</td>
+                            <td id='h9'>0</td>
+                            <td id='s9'>0</td>
+                            <td id='m9'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t10'>0</td>
+                            <td id='h10'>0</td>
+                            <td id='s10'>0</td>
+                            <td id='m10'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t11'>0</td>
+                            <td id='h11'>0</td>
+                            <td id='s11'>0</td>
+                            <td id='m11'>0</td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td style="width:50px"><br></td>
+
+                <td class="allCanvas">
+
+                    <table>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Temperature
+                            </p>
+
+                            <canvas id="tempChart1"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Humidity
+                            </p>
+                            <canvas id="humChart1"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px;  text-align: center;">
+                                Soil
+                                Moisture </p>
+                            <canvas id="soilChart1"></canvas>
+                        </tr>
+
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Average Chart</p>
+                            <canvas id="averageChart1"></canvas>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br><br>
+        <!-- trail 2 -->
+        <table class="container">
+            <h2>Trial 2</h2>
+            <tr>
+                <td>
+                    <table class="insideContainer2">
+                        <!-- <caption></caption> -->
+
+                        <tr class="mainHeader">
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Soil Moisture Percentage</th>
+                            <th>Time [Hours:minutes:seconde]</th>
+                        </tr>
+                        <tr>
+                            <td id='t12'>0</td>
+                            <td id='h12'>0</td>
+                            <td id='s12'>0</td>
+                            <td id='m12'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t13'>0</td>
+                            <td id='h13'>0</td>
+                            <td id='s13'>0</td>
+                            <td id='m13'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t14'>0</td>
+                            <td id='h14'>0</td>
+                            <td id='s14'>0</td>
+                            <td id='m14'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t15'>0</td>
+                            <td id='h15'>0</td>
+                            <td id='s15'>0</td>
+                            <td id='m15'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t16'>0</td>
+                            <td id='h16'>0</td>
+                            <td id='s16'>0</td>
+                            <td id='m16'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t17'>0</td>
+                            <td id='h17'>0</td>
+                            <td id='s17'>0</td>
+                            <td id='m17'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t18'>0</td>
+                            <td id='h18'>0</td>
+                            <td id='s18'>0</td>
+                            <td id='m18'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t19'>0</td>
+                            <td id='h19'>0</td>
+                            <td id='s19'>0</td>
+                            <td id='m19'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t20'>0</td>
+                            <td id='h20'>0</td>
+                            <td id='s20'>0</td>
+                            <td id='m20'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t21'>0</td>
+                            <td id='h21'>0</td>
+                            <td id='s21'>0</td>
+                            <td id='m21'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t22'>0</td>
+                            <td id='h22'>0</td>
+                            <td id='s22'>0</td>
+                            <td id='m22'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t23'>0</td>
+                            <td id='h23'>0</td>
+                            <td id='s23'>0</td>
+                            <td id='m23'>0</td>
+                        </tr>
+
+                    </table>
+                </td>
+
+                <td style="width:50px"><br></td>
+
+                <td class="allCanvas">
+
+                    <table>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Temperature
+                            </p>
+
+                            <canvas id="tempChart2"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Humidity
+                            </p>
+                            <canvas id="humChart2"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px;  text-align: center;">
+                                Soil
+                                Moisture </p>
+                            <canvas id="soilChart2"></canvas>
+                        </tr>
+
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Average Chart</p>
+                            <canvas id="averageChart2"></canvas>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <br><br>
+
+        <!-- trial 3 -->
+        <table class="container">
+            <h2>Trial 3</h2>
+            <tr>
+                <td>
+                    <table class="insideContainer3">
+                        <!-- <caption></caption> -->
+
+                        <tr class="mainHeader">
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Soil Moisture Percentage</th>
+                            <th>Time [Hours:minutes:seconde]</th>
+                        </tr>
+                        <tr>
+                            <td id='t24'>0</td>
+                            <td id='h24'>0</td>
+                            <td id='s24'>0</td>
+                            <td id='m24'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t25'>0</td>
+                            <td id='h25'>0</td>
+                            <td id='s25'>0</td>
+                            <td id='m25'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t26'>0</td>
+                            <td id='h26'>0</td>
+                            <td id='s26'>0</td>
+                            <td id='m26'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t27'>0</td>
+                            <td id='h27'>0</td>
+                            <td id='s27'>0</td>
+                            <td id='m27'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t28'>0</td>
+                            <td id='h28'>0</td>
+                            <td id='s28'>0</td>
+                            <td id='m28'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t29'>0</td>
+                            <td id='h29'>0</td>
+                            <td id='s29'>0</td>
+                            <td id='m29'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t30'>0</td>
+                            <td id='h30'>0</td>
+                            <td id='s30'>0</td>
+                            <td id='m30'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t31'>0</td>
+                            <td id='h31'>0</td>
+                            <td id='s31'>0</td>
+                            <td id='m31'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t32'>0</td>
+                            <td id='h32'>0</td>
+                            <td id='s32'>0</td>
+                            <td id='m32'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t33'>0</td>
+                            <td id='h33'>0</td>
+                            <td id='s33'>0</td>
+                            <td id='m33'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t34'>0</td>
+                            <td id='h34'>0</td>
+                            <td id='s34'>0</td>
+                            <td id='m34'>0</td>
+                        </tr>
+                        <tr>
+                            <td id='t35'>0</td>
+                            <td id='h35'>0</td>
+                            <td id='s35'>0</td>
+                            <td id='m35'>0</td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td style="width:50px"><br></td>
+
+                <td class="allCanvas">
+
+                    <table>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Temperature
+                            </p>
+                            <canvas id="tempChart3"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Humidity
+                            </p>
+                            <canvas id="humChart3"></canvas>
+                        </tr>
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px;  text-align: center;">
+                                Soil
+                                Moisture </p>
+                            <canvas id="soilChart3"></canvas>
+                        </tr>
+
+                        <tr>
+                            <p class="pCanvas"
+                                style="color: rgb(255, 255, 255);  background-color: #023f4e; font-size: 25px; text-align: center;">
+                                Average Chart</p>
+                            <canvas id="averageChart3"></canvas>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+
+
+
+    </body>
+
+    <script src="table1.js"></script>
+    <script src="table2.js"></script>
+    <script src="table3.js"></script>
+
+</html>
