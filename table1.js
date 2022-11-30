@@ -136,12 +136,10 @@ function calculateAvg1() {
     sumTemp1 += temp1[i];
     sumHum1 += hum1[i];
     sumSoil1 += soil1[i];
-    sumTime1 += time1[i];
   }
   avgTemp1 = sumTemp1 / temp1.length;
   avgHum1 = sumHum1 / hum1.length;
   avgSoil1 = sumSoil1 / soil1.length;
-  avgTime1 = sumTime1 / time1.length;
 }
 
 // make temp1 show after 1 min
