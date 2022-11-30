@@ -56,7 +56,7 @@ h2 {
 .allCanvas {
   width: 300px;
   height: 100px;
-  margin: 5px auto;
+  /* margin: 5px auto; */
   /* background-color: #d8d9d9; */
   background-color: rgba(218, 217, 217, 0.949);
 
@@ -89,7 +89,7 @@ canvas {
 
   border-collapse: collapse;
 
-  margin: 0 auto;
+  /* margin: 0 auto; */
   border-radius: 10px;
   overflow: hidden;
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
@@ -165,24 +165,18 @@ canvas {
 }
 
 /* responsive table */
-@media screen and (max-width: 600px) {
-  table {
-    width: 400px;
-  }
-  table tr th {
-    font-size: 0.8rem;
-  }
-}
+/* max width 1000px */
+/* @media screen and (max-width: 1000px) {
+  .allCanvas {
+    width: 20px;
+    height: 10px;
+    background-color: rgba(218, 217, 217, 0.949);
 
-@media screen and (max-width: 500px) {
-  table {
-    width: 300px;
-  }
-  table tr th {
-    font-size: 0.6rem;
+    border-radius: 5px;
   }
   canvas {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 10px;
+    background-color: rgba(218, 217, 217, 0.949);
   }
-}
+} */

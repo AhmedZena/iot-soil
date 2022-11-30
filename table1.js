@@ -51,6 +51,7 @@ function checkTest1() {
         //convert array of objects data to array of arrays
         var outputData1 = data.map(Object.values);
         console.log(test1);
+        console.log(outputData1[0][0]);
         if (test1 != outputData1[0][0]) {
           test1 = outputData1[0][0];
           getData1();
@@ -59,7 +60,7 @@ function checkTest1() {
       }
     });
 }
-checkTest1();
+// checkTest1();
 
 function getData1() {
   fetch(
@@ -83,11 +84,11 @@ function getData1() {
       var outputData1 = data.map(Object.values);
       console.log(outputData1);
       // reset all temp1 and hum1 and soil1 and time1
-      temp1 = [];
-      hum1 = [];
-      soil1 = [];
-      time1 = [];
-      for (var i = outputData1.length - 1; i >= 0; i--) {
+      //   temp1 = [];
+      //   hum1 = [];
+      //   soil1 = [];
+      //   time1 = [];
+      for (var i = 0; i < outputData1.length; i++) {
         temp1.push(outputData1[i][1]);
         hum1.push(outputData1[i][2]);
         soil1.push(outputData1[i][3]);
@@ -148,7 +149,7 @@ setInterval(() => {
   averageChart1();
 
   //   console.log(temp1);
-}, 10000);
+}, 2000);
 
 // make function for all charts
 
@@ -195,6 +196,34 @@ async function allCharts1() {
     },
   });
 
+  //   var chartT = new Highcharts.Chart({
+  //     chart: { renderTo: "chart-temperature" },
+  //     title: { text: "BME280 Temperature" },
+  //     series: [
+  //       {
+  //         showInLegend: false,
+  //         data: [],
+  //       },
+  //     ],
+  //     plotOptions: {
+  //       line: { animation: false, dataLabels: { enabled: true } },
+  //       series: { color: "#059e8a" },
+  //     },
+  //     xAxis: { type: "datetime", dateTimeLabelFormats: { second: "%H:%M:%S" } },
+  //     yAxis: {
+  //       title: { text: "Temperature (Celsius)" },
+  //       //title: { text: 'Temperature (Fahrenheit)' }
+  //     },
+  //     credits: { enabled: false },
+  //   });
+
+  //   function drawChart(obj) {
+  //     if (chartT.series[0].data.length > 24) {
+  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, true, true);
+  //     } else {
+  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, false, true);
+  //     }
+  //   }
   var chart2 = new Chart("humChart1", {
     type: "line",
     data: {

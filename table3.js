@@ -220,34 +220,6 @@ async function allCharts3() {
     },
   });
 
-  //   var chartT = new Highcharts.Chart({
-  //     chart: { renderTo: "chart-temperature" },
-  //     title: { text: "BME280 Temperature" },
-  //     series: [
-  //       {
-  //         showInLegend: false,
-  //         data: [],
-  //       },
-  //     ],
-  //     plotOptions: {
-  //       line: { animation: false, dataLabels: { enabled: true } },
-  //       series: { color: "#059e8a" },
-  //     },
-  //     xAxis: { type: "datetime", dateTimeLabelFormats: { second: "%H:%M:%S" } },
-  //     yAxis: {
-  //       title: { text: "Temperature (Celsius)" },
-  //       //title: { text: 'Temperature (Fahrenheit)' }
-  //     },
-  //     credits: { enabled: false },
-  //   });
-
-  //   function drawChart(obj) {
-  //     if (chartT.series[0].data.length > 24) {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, true, true);
-  //     } else {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, false, true);
-  //     }
-  //   }
   var chart2 = new Chart("humChart3", {
     type: "line",
     data: {
