@@ -81,8 +81,13 @@ function getData2() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData2 = data.map(Object.values);
-      // if there is no data in the table put 0 in that cell
-      console.log(outputData2);
+
+      //   reset temp2  and hum2 and soil2 and time2
+
+      temp2 = [];
+      hum2 = [];
+      soil2 = [];
+      time2 = [];
 
       for (var i = 12; i < outputData2.length; i++) {
         temp2.push(outputData2[i][1]);

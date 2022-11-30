@@ -82,12 +82,12 @@ function getData1() {
       //convert array of objects data to array of arrays
       var outputData1 = data.map(Object.values);
       console.log(outputData1);
+      // reset all temp1 and hum1 and soil1 and time1
       temp1 = [];
       hum1 = [];
       soil1 = [];
       time1 = [];
       for (var i = 0; i < outputData1.length; i++) {
-        // reset all temp1 and hum1 and soil1 and time1
 
         temp1.push(outputData1[i][1]);
         hum1.push(outputData1[i][2]);

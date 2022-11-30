@@ -46,9 +46,14 @@ function checkTest3() {
     .then((data) => {
       //convert array of objects data to array of arrays
       var outputData3 = data.map(Object.values);
-      //   console.log(outputData3);
-      //   console.log(outputData3[0][0]);
-      //   test = outputData3[0][0];
+
+      // reset all temp3 and hum3 and soil3 and time3 arrays
+
+      temp3 = [];
+      hum3 = [];
+      soil3 = [];
+      time3 = [];
+
       if (data[0] == undefined) {
         console.log("Trial 3 not started");
       } else {
@@ -170,7 +175,7 @@ setInterval(() => {
   averageChart3();
 
   //   console.log(temp3);
-}, 10000);
+}, 60000);
 
 // make function for all charts
 
