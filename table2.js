@@ -163,7 +163,18 @@ setInterval(() => {
   averageChart2();
 
   //   console.log(temp2);
-}, 10000);
+}, 60000);
+
+setTimeout(() => {
+  //   getData();
+  checkTest2();
+  putData2();
+  calculateAvg2();
+  allCharts2();
+  averageChart2();
+
+  //   console.log(temp2);
+}, 50);
 
 // make function for all charts
 
