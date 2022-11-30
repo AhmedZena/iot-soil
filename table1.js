@@ -128,17 +128,20 @@ function putData1() {
 
 // function to calculate average
 function calculateAvg1() {
+  var sumTemp1 = 0;
+  var sumHum1 = 0;
+  var sumSoil1 = 0;
+  var sumTime1 = 0;
   for (var i = 0; i < temp1.length; i++) {
-    avgTemp1 += temp1[i];
-    avgHum1 += hum1[i];
-    avgSoil1 += soil1[i];
-    // average time is not calculated
+    sumTemp1 += temp1[i];
+    sumHum1 += hum1[i];
+    sumSoil1 += soil1[i];
+    sumTime1 += time1[i];
   }
-  avgTemp1 = avgTemp1 / temp1.length;
-  avgHum1 = avgHum1 / hum1.length;
-  avgSoil1 = avgSoil1 / soil1.length;
-  //   avgTime = avgTime / time.length;
-  //   console.log(avgTemp1, avgHum1, avgSoil1, avgTime);
+  avgTemp1 = sumTemp1 / temp1.length;
+  avgHum1 = sumHum1 / hum1.length;
+  avgSoil1 = sumSoil1 / soil1.length;
+  avgTime1 = sumTime1 / time1.length;
 }
 
 // make temp1 show after 1 min
@@ -198,34 +201,6 @@ async function allCharts1() {
     },
   });
 
-  //   var chartT = new Highcharts.Chart({
-  //     chart: { renderTo: "chart-temperature" },
-  //     title: { text: "BME280 Temperature" },
-  //     series: [
-  //       {
-  //         showInLegend: false,
-  //         data: [],
-  //       },
-  //     ],
-  //     plotOptions: {
-  //       line: { animation: false, dataLabels: { enabled: true } },
-  //       series: { color: "#059e8a" },
-  //     },
-  //     xAxis: { type: "datetime", dateTimeLabelFormats: { second: "%H:%M:%S" } },
-  //     yAxis: {
-  //       title: { text: "Temperature (Celsius)" },
-  //       //title: { text: 'Temperature (Fahrenheit)' }
-  //     },
-  //     credits: { enabled: false },
-  //   });
-
-  //   function drawChart(obj) {
-  //     if (chartT.series[0].data.length > 24) {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, true, true);
-  //     } else {
-  //       chartT.series[0].addPoint([obj.Date, obj.Soil], true, false, true);
-  //     }
-  //   }
   var chart2 = new Chart("humChart1", {
     type: "line",
     data: {

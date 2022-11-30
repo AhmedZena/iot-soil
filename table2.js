@@ -81,45 +81,47 @@ function getData2() {
     })
     .then((data) => {
       //convert array of objects data to array of arrays
-      var outputData2 = data.map(Object.values);
-      console.log(outputData2);
-      outputData2 = outputData2.splice(12);
-      console.log(outputData2);
-      console.log(outputData2);
-      outputData2.reverse();
-      //   reset temp2  and hum2 and soil2 and time2
 
-      temp2 = [];
-      hum2 = [];
-      soil2 = [];
-      time2 = [];
+      if (data.length > 12) {
+        var outputData2 = data.map(Object.values);
+        console.log(outputData2);
+        outputData2 = outputData2.splice(12);
+        console.log(outputData2);
+        console.log(outputData2);
+        outputData2.reverse();
+        //   reset temp2  and hum2 and soil2 and time2
 
-      //   for (var i = 0; i < outputData2.length; i++) {
-      for (i = outputData2.length - 1; i >= 0; i--) {
-        temp2.push(outputData2[i][1]);
-        // console.log(temp2);
-        hum2.push(outputData2[i][2]);
-        soil2.push(outputData2[i][3]);
-        time2.push(outputData2[i][4]);
+        temp2 = [];
+        hum2 = [];
+        soil2 = [];
+        time2 = [];
+
+        // for (var i = 0; i < outputData2.length; i++) {
+        for (i = outputData2.length - 1; i >= 0; i--) {
+          temp2.push(outputData2[i][1]);
+          // console.log(temp2);
+          hum2.push(outputData2[i][2]);
+          soil2.push(outputData2[i][3]);
+          time2.push(outputData2[i][4]);
+        }
+        console.log(temp2);
+        //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
+        for (var i = 0; i < time2.length; i++) {
+          var date = new Date(time2[i]);
+          var hours = date.getHours();
+          var minutes = date.getMinutes();
+          var seconds = date.getSeconds();
+          var ampm = hours >= 12 ? "pm" : "am";
+          hours = hours % 12;
+          hours = hours ? hours : 12;
+          minutes = minutes < 10 ? "0" + minutes : minutes;
+          seconds = seconds < 10 ? "0" + seconds : seconds;
+          time2[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
+        }
+        console.log(time2);
+      } else {
+        console.log("Trial 2 is not started yet");
       }
-      console.log(temp2);
-      //   change time format to hh:mm:ss dd/mm/yyyy format 12hr
-      for (var i = 0; i < time2.length; i++) {
-        var date = new Date(time2[i]);
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var seconds = date.getSeconds();
-        var day = date.getDate();
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
-        var ampm = hours >= 12 ? "pm" : "am";
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        time2[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
-      }
-      console.log(time2);
     });
 }
 // getData();
@@ -136,27 +138,28 @@ function putData2() {
   } else {
     for (var i = 0; i < temp2.length; i++) {
       //   for (var i = temp2.length - 1; i >= 0; i--) {
-      tempTable2[i].innerHTML = temp2[temp2.length - 1 - i];
-      humTable2[i].innerHTML = hum2[hum2.length - 1 - i];
-      soilTable2[i].innerHTML = soil2[soil2.length - 1 - i];
-      timeTable2[i].innerHTML = time2[time2.length - 1 - i];
+      tempTable2[i].innerHTML = temp2[i];
+      humTable2[i].innerHTML = hum2[i];
+      soilTable2[i].innerHTML = soil2[i];
+      timeTable2[i].innerHTML = time2[i];
     }
   }
 }
 
 // function to calculate average
 function calculateAvg2() {
+  var sumTemp2 = 0;
+  var sumHum2 = 0;
+  var sumSoil2 = 0;
   for (var i = 0; i < temp2.length; i++) {
-    avgTemp2 += temp2[i];
-    avgHum2 += hum2[i];
-    avgSoil2 += soil2[i];
-    // average time is not calculated
+    sumTemp2 += parseInt(temp2[i]);
+    sumHum2 += parseInt(hum2[i]);
+    sumSoil2 += parseInt(soil2[i]);
   }
-  avgTemp2 = avgTemp2 / temp2.length;
-  avgHum2 = avgHum2 / hum2.length;
-  avgSoil2 = avgSoil2 / soil2.length;
-  //   avgTime = avgTime / time.length;
-  //   console.log(avgTemp2, avgHum2, avgSoil2, avgTime);
+
+  avgTemp2 = sumTemp2 / temp2.length;
+  avgHum2 = sumHum2 / hum2.length;
+  avgSoil2 = sumSoil2 / soil2.length;
 }
 
 // make temp2 show after 1 min
