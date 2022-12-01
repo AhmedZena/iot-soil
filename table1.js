@@ -32,7 +32,7 @@ let test1 = 0;
 //function to check if test changed
 function checkTest1() {
   fetch(
-    "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"
+    "https://script.google.com/macros/s/AKfycbzTuIkGw7lhN6brflf1tk4CEEquW-LzZ48t5BQ_3tauxNvNTAhow7Kiw6vumIaCbjoz/exec"
   )
     .then((result) => {
       var data = result.json();
@@ -66,7 +66,7 @@ function checkTest1() {
 
 function getData1() {
   fetch(
-    "https://script.googleusercontent.com/macros/echo?user_content_key=GCPgv-iMOv_FMylzmysiLre5S7UfW00vGWQO74dqZ1YEaxz5jUFE23zuyLUpIB3eIGE6qw9bfVJBiJw96OpJNaCzYNrb9mMqm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEqLSDOJTamM6PRRAM545fdISKH722OvpUvmeQnVJTDEEIp2nCWKtVBzuNpgscHP-a2r9QfGgRHMOtFHK9gD6pOoLSxKvstFaw&lib=MjLHK5ymePKFVsjjhIOUEPnjOEwsImfFF"
+    "https://script.google.com/macros/s/AKfycbzTuIkGw7lhN6brflf1tk4CEEquW-LzZ48t5BQ_3tauxNvNTAhow7Kiw6vumIaCbjoz/exec"
   )
     .then((result) => {
       var data = result.json();
