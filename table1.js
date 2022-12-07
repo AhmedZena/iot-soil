@@ -124,7 +124,7 @@ function putData1() {
   for (var i = 0; i < temp1.length; i++) {
     //   for (var i = temp1.length - 1; i >= 0; i--) {
     tempTable1[i].innerHTML = temp1[i];
-    humTable1[i].innerHTML = hum1[i];
+    humTable1[i].innerHTML = hum1[i] + "%";
     soilTable1[i].innerHTML = soil1[i];
     timeTable1[i].innerHTML = time1[i];
   }
