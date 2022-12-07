@@ -8,7 +8,7 @@
 
 body {
   background-color: #ffffff;
-
+  /* width: 1000px; */
   /* no repeat  */
   background-size: cover;
   /* cover the whole screen */
@@ -19,11 +19,32 @@ body {
 }
 .projectName {
   font-size: 1.5rem;
-  text-align: center;
-  margin-top: 5rem;
-  width: 100%;
+  width: 80%;
   color: #ffffff;
   background-color: #023f4e;
+  /* margin-left: 2rem; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+.projectName h1 {
+  /* font-size: medium; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+img {
+  float: left;
+  padding: 1rem;
+}
+
+/* last img */
+img:last-child {
+  float: right;
+  margin: 0;
 }
 
 #message h1 {

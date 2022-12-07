@@ -121,7 +121,11 @@ function getData3() {
           seconds = seconds < 10 ? "0" + seconds : seconds;
           time3[i] = hours + ":" + minutes + ":" + seconds + " " + ampm;
         }
-        console.log(time3);
+        putData3();
+        calculateAvg3();
+        allCharts3();
+        averageChart3();
+        // console.log(time3);
       }
     });
 }
@@ -168,13 +172,13 @@ function calculateAvg3() {
 setInterval(() => {
   //   getData();
   checkTest3();
-  putData3();
-  calculateAvg3();
-  allCharts3();
-  averageChart3();
+  //   putData3();
+  //   calculateAvg3();
+  //   allCharts3();
+  //   averageChart3();
 
   //   console.log(temp3);
-}, 5000);
+}, 2000);
 
 // make function for all charts
 
